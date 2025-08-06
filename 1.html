@@ -1,179 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>For My Love ❤️</title>
-<style>
+  <meta charset="UTF-8" />
+  <title>For My Love ❤️</title>
+  <style>
     body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        font-family: 'Arial', sans-serif;
-        background-color: #ffb6c1; /* Soft Pink Color */
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      background-color: #ffb6c1;
     }
     .page {
-        display: none;
-        height: 100vh;
-        width: 100%;
-        text-align: center;
-        padding: 20px;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        position: absolute;
-        top: 0;
-        left: 0;
+      display: none;
+      height: 100vh;
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
     .page.active {
-        display: flex;
-        animation: fadeIn 1s forwards;
+      display: flex;
+      animation: fadeIn 1s forwards;
     }
     @keyframes fadeIn {
-        from { opacity: 0; transform: scale(0.95); }
-        to { opacity: 1; transform: scale(1); }
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
     .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        width: 90%;
-        max-width: 800px;
-        margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
     }
     .grid img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 20px;
-        cursor: pointer;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        transition: transform 0.3s;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
     }
     .grid img:hover {
-        transform: scale(1.05);
+      transform: scale(1.05);
     }
-    h1, p {
-        color: #fff;
+    h1,
+    p {
+      color: #fff;
     }
     .btn {
-        padding: 10px 20px;
-        font-size: 1.2em;
-        border: none;
-        border-radius: 10px;
-        background-color: #fff;
-        cursor: pointer;
-        margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      background-color: #fff;
+      cursor: pointer;
+      margin-top: 20px;
     }
     .btn:hover {
-        background-color: #f8b6b6;
+      background-color: #f8b6b6;
     }
     .long-message {
-        max-width: 700px;
-        text-align: center;
-        color: #fff;
-        font-size: 1.2em;
-        line-height: 1.6;
+      max-width: 700px;
+      text-align: center;
+      color: #fff;
+      font-size: 1.2em;
+      line-height: 1.6;
     }
     canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
     }
-</style>
+  </style>
 </head>
 <body>
+  <audio autoplay loop>
+    <source src="your-music.mp3" type="audio/mpeg" />
+  </audio>
 
-<audio autoplay loop>
-    <source src="your-music.mp3" type="audio/mpeg">
-</audio>
+  <canvas id="confetti"></canvas>
 
-<canvas id="confetti"></canvas>
-
-<!-- Sorry Page -->
-<div class="page active" id="sorryPage">
+  <!-- Sorry Page -->
+  <div class="page active" id="sorryPage">
     <h1>I'm Sorry... 😔</h1>
-    <p>I know I’ve made mistakes. I'm sorry for my behaviour. There were many things which were wrong. I could have stopped them, but I didn’t. I genuinely ask for your forgiveness. I never intended to hurt you. I'm so, so, so, so, so, really very sorry. I know I’ve made mistakes, but my love for you has always been pure ❤️. If possible, please forgive me. I won’t repeat them again.</p>
+    <p>
+      I know I’ve made mistakes. I'm sorry for my behaviour... <br />
+      [Your full sorry message here]
+    </p>
     <button class="btn" onclick="nextPage('gridPage')">Next ➡️</button>
-</div>
+  </div>
 
-<!-- Photo Grid Page -->
-<div class="page" id="gridPage">
+  <!-- Grid Page -->
+  <div class="page" id="gridPage">
     <h1>Happy Birthday, My Love ❤️</h1>
     <p>Click on the pictures, I have something to say... 🥰</p>
     <div class="grid">
-        <img src="images/IMG-20250510-WA0288.jpg" alt="Pic 1" onclick="nextPage('msg1')">
-        <img src="images/IMG_20250607_155016880.jpg" alt="Pic 2" onclick="nextPage('msg2')">
-        <img src="images/Screenshot_20250630-075418 (1).png" alt="Pic 3" onclick="nextPage('msg3')">
+      <img src="images/IMG-20250510-WA0288.jpg" alt="Pic 1" onclick="nextPage('msg1')" />
+      <img src="images/IMG_20250607_155016880.jpg" alt="Pic 2" onclick="nextPage('msg2')" />
+      <img src="images/Screenshot_20250630-075418 (1).png" alt="Pic 3" onclick="nextPage('msg3')" />
     </div>
-</div>
+  </div>
 
-<!-- Message Pages -->
-<div class="page" id="msg1">
+  <!-- Message Pages -->
+  <div class="page" id="msg1">
     <h1>For my best Part of my life......</h1>
-    <p>You make everything brighter🌟. They say when two people love each other, man becomes woman’s strength and woman becomes man’s weakness. I don’t believe that. Because in my case, you are my everything—my home, my safe place. You’ve been my peace in chaos, my calm in storms, my anchor and my wings. I haven’t always made you feel the love you deserve, and that hurts me more than anything. I wish you could see yourself through my eyes. You’d see how precious, beautiful, and irreplaceable you are. I don’t want 8 months with you. I want forever. I’m learning, growing, and becoming someone who’s worthy of your love. Please forgive me. You are my entire story. I love you more than these words could ever say. 💕💕🙇‍♂️</p>
+    <p>
+      [Message 1 content goes here...]
+    </p>
     <button class="btn" onclick="nextPage('gridPage')">Back to Photos</button>
-</div>
+  </div>
 
-<div class="page" id="msg2">
+  <div class="page" id="msg2">
     <h1>With you, I feel at home no matter where I am. ❤️</h1>
-    <p>My Deepti,<br><br>I don’t even know where to begin, but my heart’s been carrying so much. First, I want to say I’m sorry. If I could take back every moment that hurt you, I would. You deserve so much better than my mistakes. And yet, you are still in my heart, still the one I think of when I wake up. Darling, I miss you. Not just your voice or your smile—but the way you make everything feel alive. Life feels incomplete without you. I wish I could hold you right now and tell you how deeply I regret letting you down. You are my peace, my home, my person. Please know: my heart has never left your side. I hope you can feel that.</p>
+    <p>
+      [Message 2 content goes here...]
+    </p>
     <button class="btn" onclick="nextPage('gridPage')">Back to Photos</button>
-</div>
+  </div>
 
-<div class="page" id="msg3">
+  <div class="page" id="msg3">
     <h1>I want to make countless memories with you, forever and always. 💫</h1>
-    <p>My Kandha,<br><br>Happy Birthday, my love.<br><br>I know today doesn’t feel the way it should. I wanted to be there, hold your hand, whisper how lucky I am to have you. But today, I’m writing this from a distance, and my heart feels empty. Still, if you close your eyes, you’ll feel it—my love. It’s always with you. Every song, every moment, reminds me of you. I’ve planned a surprise for when you're back. Please don’t let today feel like your worst birthday. Let it be the day you realize someone out here is waiting to love you better, stronger, and forever.<br><br>Happy Birthday, my Kandha. I love you.</p>
+    <p>
+      [Message 3 content goes here...]
+    </p>
+    <!-- Swap goes here -->
     <button class="btn" onclick="nextPage('thankYouPage')">Next ➡️</button>
-</div>
+  </div>
 
-<!-- Thank You Page (now before Proposal Page) -->
-<div class="page" id="thankYouPage">
+  <!-- ✅ Thank You Page comes BEFORE Proposal -->
+  <div class="page" id="thankYouPage">
     <h1>Thank You, My Love ❤️</h1>
     <div class="long-message">
-        <p>I don’t have enough words to express what you mean to me. You are my heart, my happiness, my reason to smile every day. Through my imperfections, you have shown me what unconditional love is. This small surprise is just a reflection of the huge place you hold in my heart. I promise to stand by you, to love you deeply, and to make every day special for you. Forever starts with you. ❤️</p>
+      <p>
+        I don’t have enough words to express what you mean to me. You are my heart, my happiness, my reason to smile every day...
+        <br /><br />
+        [Full thank-you message here]
+      </p>
     </div>
     <button class="btn" onclick="nextPage('proposalPage')">Yes 😍</button>
-</div>
+  </div>
 
-<!-- Proposal Page (now appears last) -->
-<div class="page" id="proposalPage">
+  <!-- ✅ Proposal Page comes AFTER Thank You -->
+  <div class="page" id="proposalPage">
     <h1>One Last Thing... 💍</h1>
-    <p>My Love,<br><br>I don’t think I’ll ever find the right words to fully express how much you mean to me. But I need to try. Because you deserve to know how deeply you’re loved.<br><br>Every single day, I wake up grateful that you’re in my life. You are not just my girlfriend—you are my best friend, my safe place, the one person who truly understands me. You’ve loved me even when I struggled to love myself. Do you know how rare and precious that is?<br><br>Sometimes, the thought of losing you scares me more than anything. Life without you feels impossible—like the world would lose its color. I don’t want to face a single day without hearing your voice, feeling your hand in mine, knowing you’re with me.<br><br>You are my heart. My everything. Please never doubt how much you are loved. I don’t ever want to lose you.<br><br>Will you be with me forever? ❤️</p>
-</div>
+    <p>
+      My Love,<br /><br />
+      I don’t think I’ll ever find the right words to fully express how much you mean to me...<br /><br />
+      Will you be with me forever? ❤️
+    </p>
+  </div>
 
-<script>
-// Page Navigation with Confetti
-function nextPage(pageId) {
-    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
-    shootConfetti();
-}
-
-// Confetti Animation
-const canvas = document.getElementById('confetti');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let confetti = [];
-
-function shootConfetti() {
-    for (let i = 0; i < 100; i++) {
-        confetti.push({
-            x: Math.random() * canvas.width,
-            y: canvas.height + Math.random() * 100,
-            r: Math.random() * 6 + 2,
-            d: Math.random() * 10 + 5,
-            color: `hsl(${Math.random() * 360}, 100%, 70%)`,
-            tilt: Math.random() * 10 - 10
-        });
+  <script>
+    // Navigation Function
+    function nextPage(pageId) {
+      document.querySelectorAll('.page').forEach((page) => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      shootConfetti();
     }
-}
 
-function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < confetti.length; i++) {
+    // Confetti Setup
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let confetti = [];
+
+    function shootConfetti() {
+      for (let i = 0; i < 100; i++) {
+        confetti.push({
+          x: Math.random() * canvas.width,
+          y: canvas.height + Math.random() * 100,
+          r: Math.random() * 6 + 2,
+          d: Math.random() * 10 + 5,
+          color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+          tilt: Math.random() * 10 - 10,
+        });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < confetti.length; i++) {
         let c = confetti[i];
         ctx.beginPath();
         ctx.lineWidth = c.r / 2;
@@ -181,28 +204,28 @@ function draw() {
         ctx.moveTo(c.x + c.tilt + c.r, c.y);
         ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r);
         ctx.stroke();
+      }
+      update();
     }
-    update();
-}
 
-function update() {
-    for (let i = 0; i < confetti.length; i++) {
+    function update() {
+      for (let i = 0; i < confetti.length; i++) {
         let c = confetti[i];
         c.y -= c.d;
         c.tilt = Math.sin(c.y / 30) * 15;
         if (c.y < -20) {
-            confetti.splice(i, 1);
-            i--;
+          confetti.splice(i, 1);
+          i--;
         }
+      }
     }
-}
 
-function loop() {
-    requestAnimationFrame(loop);
-    draw();
-}
-loop();
-</script>
+    function loop() {
+      requestAnimationFrame(loop);
+      draw();
+    }
 
+    loop();
+  </script>
 </body>
 </html>
